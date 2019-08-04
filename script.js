@@ -3,7 +3,7 @@ var tochoose = []
 
 var index = 2;
 var enabled = false;
-
+var paused = false;
 function initialize() {
 	var i = 0;
 	tochoose = [];
@@ -23,9 +23,29 @@ function initialize() {
 	document.getElementById("question2").innerHTML = questions[tochoose[1]];
 	document.getElementById("min").innerHTML = "??";
 	document.getElementById("sec").innerHTML = "??";
-	enabled = true;
+	enabled = false;
+	setTimeout(function() {
+		enabled = true;
+	}, 1002)
+	setTimeout(stopwatch, 1005);
 	index = 2;
 }
+function play() {
+	var minutes = parseInt(document.getElementById("min").innerHTML) * 60;
+	var seconds = parseInt(document.getElementById("sec").innerHTML);
+	if (isNaN(minutes) || isNaN(seconds)) {
+		console.log(minutes, seconds);
+	}
+	else {
+		enabled = true;
+		decrement(minutes + seconds);
+	}
+}
+
+function pause() {
+	enabled = false;
+}
+
 function reset() {
 	document.getElementById("question1").innerHTML = "";
 	document.getElementById("question2").innerHTML = "";
@@ -38,6 +58,11 @@ function nextQuestion() {
 	if (index < 10 && enabled) {
 		document.getElementById("question1").innerHTML = questions[tochoose[index - 1]]; 	
 		document.getElementById("question2").innerHTML = questions[tochoose[index]];
+		enabled = false;
+		setTimeout(function() {
+			enabled = true;
+		}, 1002)
+		setTimeout(stopwatch, 1005);
 		index++;
 	}
 }
@@ -45,22 +70,38 @@ function nextQuestion() {
 
 
 function decrement(time) {
+	if (!enabled) {
+		console.log("Not Enabled");
+		return;
+	}
 	if (time < 0) {
-		// nextQuestion();
+		nextQuestion();
 	}
 	else {
 		var minutes = Math.floor(time/60);
 		var seconds = time%60;
-		
-		document.getElementById("min").innerHTML = "??";
-		document.getElementById("sec").innerHTML = "??";
+		var minutes = minutes.toString();
+		var seconds = seconds.toString();
+		console.log(minutes, seconds);
+		if (minutes.length < 2) {
+			var str = "";
+			minutes = str.concat("0", minutes);
+		}
+
+		if (seconds.length < 2) {
+			var str = "";
+			seconds = str.concat("0", seconds);
+		}
+		document.getElementById("min").innerHTML = minutes;
+		document.getElementById("sec").innerHTML = seconds;
+		setTimeout(decrement, 1000, time - 1);
 	}
 }
 
 
 function stopwatch() {
-	document.getElementById("timer").innerHTML = "00:00";
-	
+	console.log("Stopwatch called");
+	decrement(10);
 }
 
 
