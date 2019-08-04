@@ -1,0 +1,54 @@
+.bottom {
+	background-color: #7b48ff; 			
+	display: table;
+	height: 10vh;
+	margin-top: 1vh;
+	position: relative;
+	top: -7vh;
+	width: 15vw;
+}
+
+.bottom h1 {
+	color: white;
+	display: table-cell;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 6rem;
+	font-weight: 100px;
+	vertical-align: middle;
+}
+
+.image {
+
+}
+
+.middle {
+	background-color: grey; 
+	height: 78vh;
+	margin-top: 1vh;
+	width: 85vw;
+}
+
+.question {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.question h1 {
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 3rem;
+	font-weight: 430;
+	margin-right: 5%;
+	margin-left: 5%;
+	text-align: justify;
+}
+
+
+.top {
+	background-color: #7b48ff; 			
+	display: table;
+	height: 13vh;
+	margin-top: 1vh;
+	width: 85vw;
+}
+

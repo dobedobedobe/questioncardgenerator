@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Question Card Generator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800&display=swap" rel="stylesheet">
+</head>
+<body style="height: 100vh; overflow: hidden;">
+	<!-- Starting of top container where blanks are to be placed -->
+	<div class="container top">
+		<div class="col-sm-6 question">
+			<h1 id="question1"></h1>
+		</div>
+		
+		<div class="col-sm-6 question">
+			<h1 id="question2"></h1>
+		</div>
+
+	</div>
+	
+	<!-- Starting of middle container where pictures are to be placed -->
+	<div class="container middle">
+		<div class="col-sm-6 image">
+			
+		</div>
+		<div class="col-sm-6 image">
+					
+		</div>
+	</div>
+
+	<!-- Starting of middle container where stopwatch is placed -->
+	<div class="container bottom" style="text-align: center; vertical-align: center">
+		<h1><span id="min"></span>:<span id="sec"></span></h1>
+	</div>
+
+
+
+</body>
+<footer>
+	<script type="text/javascript" src="extra/words.json"></script>
+	<script type="text/javascript" src="extra/questions.json"></script>
+	<script src="script.js"></script>
+</footer>
+</html>
