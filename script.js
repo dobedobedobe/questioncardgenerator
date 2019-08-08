@@ -58,6 +58,8 @@ function nextQuestion() {
 	if (index < 10 && enabled) {
 		document.getElementById("question1").innerHTML = questions[tochoose[index - 1]]; 	
 		document.getElementById("question2").innerHTML = questions[tochoose[index]];
+		document.getElementById("image1").src = document.getElementById("image3").src;  
+		document.getElementById("image2").src = document.getElementById("image4").src;  
 		enabled = false;
 		setTimeout(function() {
 			enabled = true;

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ABCD</title>
+</head>
+<body>
+	<input type="text" id="keywords" name="Enter A Keyword" placeholder="Enter keywords">
+	<button onclick="myFunction()">Click Me</button>
+	<br>
+	<img id = "img1" src="" >
+</body>
+	<script type="text/javascript">
+		
+		function httpGet(theUrl)
+		{
+		    var xmlHttp = new XMLHttpRequest();
+		    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+		    xmlHttp.send( null );
+		    return xmlHttp.responseText;
+		}
+
+		function changeBackground(tags) {
+			tags = tags.trim();
+
+			var API_KEY = "";
+			var url1 = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=" + API_KEY + "&tags=" + tags + "&format=json&nojsoncallback=1";
+			var mystr = JSON.parse(httpGet(url1));
+			var mystr = mystr.photos.photo;
+			console.log(mystr.length);
+			var rnd = Math.floor(Math.random()*mystr.length);
+			console.log(mystr[rnd]);
+
+			var url = "http://farm" + mystr[rnd].farm + ".staticflickr.com/" + mystr[rnd].server + "/"+ mystr[rnd].id + "_" + mystr[rnd].secret + ".jpg";
+			console.log(url);
+			document.getElementById("img1").src = url;
+		}
+
+		function myFunction(event) {
+			changeBackground(document.getElementById("keywords").value);
+		}
+
+	</script>
+</html>
