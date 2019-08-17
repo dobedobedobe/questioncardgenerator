@@ -6,7 +6,7 @@ var index = 2;
 var enabled = false;
 var paused = false;
 
-var API_KEY = "16fbd91515ddaade6c384ba5e195cafb";
+var API_KEY = "";
 
 function fillInTheBlanks(h, word1, word2) {
 	var fragments = h.innerHTML.split("_");
