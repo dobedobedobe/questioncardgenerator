@@ -29,9 +29,9 @@
 
 .image img {
 	display: block;
-	margin: 2% auto;
-	max-height: 30vh;
-	max-width: 30vw;
+	margin: 1% auto;
+	max-height: 38vh;
+	max-width: 42vw;
 
 }
 
@@ -42,13 +42,13 @@
 }
 
 .middle {
-	height: 78vh;
+	height: 80vh;
 	margin-top: 1vh;
 	width: 85vw;
 }
 
 .question {
-	display: table-cell;
+	display: table;
 	vertical-align: middle;
 }
 

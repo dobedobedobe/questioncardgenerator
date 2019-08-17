@@ -14,11 +14,17 @@ function fillInTheBlanks(h, word1, word2) {
     	return (value != "");
 	});
 	console.log(filtered);
+	console.log(fragments);
 	filtered.push("");
+
 	if (filtered.length < 3) {
 		return;
 	}
+
 	var string = filtered[0] +"<u>" + word1 + "</u>" + filtered[1] + "<u>" + word2 + "</u>"  + filtered[2];
+	if (fragments[0] == "") {
+		string = "<u>" + word1 + "</u>" + filtered[0] + "<u>" + word2 + "</u>"  + filtered[1];	
+	}
 	console.log(string);
 	h.innerHTML = string;
 }
