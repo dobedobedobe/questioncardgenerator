@@ -6,7 +6,22 @@ var index = 2;
 var enabled = false;
 var paused = false;
 
-var API_KEY = "";
+var API_KEY = "16fbd91515ddaade6c384ba5e195cafb";
+
+function fillInTheBlanks(h, word1, word2) {
+	var fragments = h.innerHTML.split("_");
+	var filtered = fragments.filter(function(value, index, arr){
+    	return (value != "");
+	});
+	console.log(filtered);
+	filtered.push("");
+	if (filtered.length < 3) {
+		return;
+	}
+	var string = filtered[0] +"<u>" + word1 + "</u>" + filtered[1] + "<u>" + word2 + "</u>"  + filtered[2];
+	console.log(string);
+	h.innerHTML = string;
+}
 
 function initialize() {
 	var i = 0;
@@ -53,10 +68,10 @@ function reset() {
 	document.getElementById("image2").src = "";  
 	document.getElementById("image3").src = "";  
 	document.getElementById("image4").src = "";  
-	document.getElementById("word1").innerHTML = "";
-	document.getElementById("word2").innerHTML = "";
-	document.getElementById("word3").innerHTML = "";
-	document.getElementById("word4").innerHTML = "";
+	// document.getElementById("word1").innerHTML = "";
+	// document.getElementById("word2").innerHTML = "";
+	// document.getElementById("word3").innerHTML = "";
+	// document.getElementById("word4").innerHTML = "";
 	document.getElementById("min").innerHTML = "??";
 	document.getElementById("sec").innerHTML = "??";
 	enabled = false;
@@ -74,10 +89,10 @@ function nextQuestion() {
 		document.getElementById("image2").src = document.getElementById("image4").src;  
 		document.getElementById("image3").src = "";  
 		document.getElementById("image4").src = "";  
-		document.getElementById("word1").innerHTML = document.getElementById("word3").innerHTML;
-		document.getElementById("word2").innerHTML = document.getElementById("word4").innerHTML;
-		document.getElementById("word3").innerHTML = "";
-		document.getElementById("word4").innerHTML = "";
+		// document.getElementById("word1").innerHTML = document.getElementById("word3").innerHTML;
+		// document.getElementById("word2").innerHTML = document.getElementById("word4").innerHTML;
+		// document.getElementById("word3").innerHTML = "";
+		// document.getElementById("word4").innerHTML = "";
 		document.getElementById("fix").disabled = false;
 		// enabled = false;
 		// setTimeout(function() {
@@ -153,11 +168,12 @@ function fixClick() {
 		num2 = "0" + num2;
 	}
 
+	fillInTheBlanks(document.getElementById("question2"), words[letter1 + num1], words[letter2 + num2]);
 	console.log(letter1 + num1, letter2 + num2);
 	console.log(words[letter1 + num1]);
 	console.log(words[letter2 + num2]);
-	document.getElementById("word3").innerHTML = letter1 + num1 + " " + words[letter1 + num1];
-	document.getElementById("word4").innerHTML = letter2 + num2 + " " + words[letter2 + num2];
+	// document.getElementById("word3").innerHTML = letter1 + num1 + " " + words[letter1 + num1];
+	// document.getElementById("word4").innerHTML = letter2 + num2 + " " + words[letter2 + num2];
 	document.getElementById("fix").disabled = true;
 	changeBackground(words[letter1 + num1], document.getElementById("image3"))
 	changeBackground(words[letter2 + num2], document.getElementById("image4"))
@@ -165,7 +181,7 @@ function fixClick() {
 	setTimeout(function() {
 		enabled = true;
 	}, 1002)	
-	setTimeout(stopwatch, 1005);
+	setTimeout(stopwatch, 2005);
 }
 
 function decrement(time) {

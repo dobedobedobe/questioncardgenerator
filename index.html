@@ -26,22 +26,22 @@
 	<div class="container middle">
 		<div class="col-sm-6">
 			<div  class="image">
-				<img id="image1" src="" >
-				<p id="word1"></p>
+				<img id="image1" src="" onerror="this.style.display='none'" onload="this.style.display='block'"/>
+				<!-- <p id="word1"></p> -->
 			</div>
 			<div  class="image">
-				<img id="image2" src="" >
-				<p id="word2"></p>
+				<img id="image2" src="" onerror="this.style.display='none'" onload="this.style.display='block'"/>
+				<!-- <p id="word2"></p> -->
 			</div>
 		</div>
 		<div class="col-sm-6">
 			<div  class="image">
-				<img id="image3" src="" >
-				<p id="word3"></p>
+				<img id="image3" src="" onerror="this.style.display='none'" onload="this.style.display='block'"/>
+				<!-- <p id="word3"></p> -->
 			</div>
 			<div  class="image">
-				<img id="image4" src="" >
-				<p id="word4"></p>
+				<img id="image4" src="" onerror="this.style.display='none'" onload="this.style.display='block'"/>
+				<!-- <p id="word4"></p> -->
 			</div>		
 		</div>
 	</div>
@@ -51,7 +51,7 @@
 		<h1><span id="min">  </span>:<span id="sec">  </span></h1>
 		
 	</div>
-	<div class="container inputfields">
+	<div class="inputfields">
 		<input id="num1" maxlength="2" type="number" placeholder="Enter First Word">
 		<input id="num2" maxlength="2" type="number" placeholder="Enter Second Word">
 		<button id="fix" onclick="fixClick()">Fix</button>

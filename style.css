@@ -1,17 +1,18 @@
 .bottom {
 	background-color: #7b48ff; 			
+	bottom: 10px;
 	display: table;
 	height: 10vh;
-	margin-top: 1vh;
-	position: relative;
-	top: -7vh;
+	left: 50%;
+	margin-left: -7.5vw;
+	position: absolute;
 	width: 15vw;
 }
 
 .bottom h1 {
 	color: white;
 	display: table-cell;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Arial', sans-serif;
 	font-size: 6rem;
 	font-weight: 106px;
 	vertical-align: middle;
@@ -35,12 +36,12 @@
 }
 
 .inputfields {
-	left:1000px;
-	position: relative;
-	top: -100px;
+	bottom: 10px;
+	right: 7.5vw;
+	position: absolute;
 }
+
 .middle {
-	background-color: grey; 
 	height: 78vh;
 	margin-top: 1vh;
 	width: 85vw;
@@ -53,12 +54,12 @@
 
 .question h1 {
 	color: white;
-	font-family: 'Montserrat', sans-serif;
+	/*font-family: 'Montserrat', sans-serif;*/
 	font-size: 3rem;
-	font-weight: 430;
+	font-weight: 200;
 	margin-right: 5%;
 	margin-left: 5%;
-	text-align: justify;
+	/*text-align: justify;*/
 }
 
 
