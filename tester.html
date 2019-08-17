@@ -9,6 +9,7 @@
 	<br>
 	<img id = "img1" src="" >
 </body>
+	
 	<script type="text/javascript">
 		
 		function httpGet(theUrl)
@@ -19,24 +20,40 @@
 		    return xmlHttp.responseText;
 		}
 
-		function changeBackground(tags) {
+		function changeBackground(tags, image) {
+			console.log(tags);
+			listtags = tags.split(" ")
 			tags = tags.trim();
 
 			var API_KEY = "";
 			var url1 = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=" + API_KEY + "&tags=" + tags + "&format=json&nojsoncallback=1";
 			var mystr = JSON.parse(httpGet(url1));
-			var mystr = mystr.photos.photo;
+			var mystr = mystr.photos;
+			mystr = mystr.photo;
 			console.log(mystr.length);
+			if (mystr.length == 0) {
+				for (var i = 0; i < listtags.length; i++) {
+					var isTrue = changeBackground(listtags[i], image);
+					if (isTrue) {
+						return true;
+					} 
+				}
+				return false;
+			}
 			var rnd = Math.floor(Math.random()*mystr.length);
 			console.log(mystr[rnd]);
+			if (mystr[rnd] == undefined) {
+				return false;
+			}
 
 			var url = "http://farm" + mystr[rnd].farm + ".staticflickr.com/" + mystr[rnd].server + "/"+ mystr[rnd].id + "_" + mystr[rnd].secret + ".jpg";
 			console.log(url);
-			document.getElementById("img1").src = url;
+			image.src = url;
+			return true;
 		}
 
 		function myFunction(event) {
-			changeBackground(document.getElementById("keywords").value);
+			changeBackground(document.getElementById("keywords").value, document.getElementById("img1"));
 		}
 
 	</script>

@@ -24,20 +24,24 @@
 	
 	<!-- Starting of middle container where pictures are to be placed -->
 	<div class="container middle">
-		<div class="col-sm-6 image">
+		<div class="col-sm-6">
 			<div  class="image">
 				<img id="image1" src="" >
+				<p id="word1"></p>
 			</div>
 			<div  class="image">
 				<img id="image2" src="" >
+				<p id="word2"></p>
 			</div>
 		</div>
-		<div class="col-sm-6 image">
+		<div class="col-sm-6">
 			<div  class="image">
-				<img id="image3" src="https://www.bl.uk/britishlibrary/~/media/bl/global/dl%20shakespeare/authors/shakespeare-people-page.jpg?crop=1&cropX=16&cropY=12&cropW=1619&cropH=910&w=608&h=342&dispW=608&dispH=342" >
+				<img id="image3" src="" >
+				<p id="word3"></p>
 			</div>
 			<div  class="image">
-				<img id="image4" src="http://en.shisu.edu.cn/common-uploads/2016/12/up_14815357059042025_0.jpg" >
+				<img id="image4" src="" >
+				<p id="word4"></p>
 			</div>		
 		</div>
 	</div>
@@ -45,8 +49,13 @@
 	<!-- Starting of middle container where stopwatch is placed -->
 	<div class="container bottom" style="text-align: center; vertical-align: center">
 		<h1><span id="min">  </span>:<span id="sec">  </span></h1>
+		
 	</div>
-
+	<div class="container inputfields">
+		<input id="num1" maxlength="2" type="number" placeholder="Enter First Word">
+		<input id="num2" maxlength="2" type="number" placeholder="Enter Second Word">
+		<button id="fix" onclick="fixClick()">Fix</button>
+	</div>
 
 
 </body>
